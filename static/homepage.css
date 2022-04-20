@@ -1,0 +1,31 @@
+body{
+    background-color: #afd6e9;
+}
+.nav-item{
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+}
+
+
+.jumbotron{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),
+     url('Swyambhunath.jpg');    
+    width: device-width;
+    height: 400px;
+}
+.jumbotron p>lead{
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-style: bold;
+    
+    padding-top: 10px;
+}
+
+.jumbotron p {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-style: bold;
+    padding-top: 10px;
+}

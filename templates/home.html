@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Sentiment Analysis</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link" href="#">Pricing</a>
+          <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+          <a class="nav-item nav-link" href="#">Contact</a>
+          <a class="nav-item nav-link" href="#">Login</a>
+          <a class="nav-item nav-link" href="#">Signup</a>
+
+        </div>
+      </div>
+    </nav>
+    <!--This is a Jumbotron line-->
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, UserX !</h1>
+      <p class="lead">Sentiment Analysis for your text, URL and Twitter.</p>
+      <hr class="my-4">
+      <p>This site helps your to find out the sentimte of your data.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
+      </p>
+    </div>
+
+    
+    
+  
+    <!--- card for different sentiment analysis links -->
+    <!--
+    <div class="card" style="width:100%;">
+      <img class="card-img-top" src="{% static 'Swyambhunath.jpg' %}" alt="Swyambhunath Temple">
+      <div class="card-body">
+        <h5 class="card-title">The platform for your sentiment analysis.</h5>
+        <p class="card-text">In this sentiment analysis you can enter your text i.e. sentence or paragraph. Then the sentiment of your sentence will be shown.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  -->
+
+    <!---  grid card for different sentiment analysis links -->
+    <div class = "container">
+    <div class="row">
+      <!--first card for live sentiment analysis-->
+      <div class ="col-md-4">
+        <div class="card"  >        
+        <div class="card-body">
+          <h5 class="card-title">Live Sentiment Analysis</h5>
+          <p class="card-text">Live sentiment analysis for your text, sentences, paragraphs, etc.</p>
+          <a href="{% url 'sLive' %}" class="btn btn-primary">Start</a>
+        </div>
+      </div>
+    </div>
+      <!--second card for web sentient analysis-->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Sentiment Analysis from web.</h5>
+            <p class="card-text">You can analyze the sentiment of your article form web.</p>
+            <a href="{% url 'sentimentUrl' %}" class="btn btn-primary">Analyze</a>
+          </div>
+        </div>
+      </div>
+      <!--third card for sentiment analysis from twitter.-->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Sentiment From twitter.</h5>
+            <p class="card-text">You can analyze the sentiment of our desired data from the twitter.</p>
+            <a href="{% url 'sTwitter' %}" class="btn btn-primary">Start</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+  </body>
+</html>
