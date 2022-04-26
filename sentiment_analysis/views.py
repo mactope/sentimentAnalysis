@@ -46,3 +46,6 @@ def urlResult(request):
     summary = objArticle.generateSummary()
     return render(request, 'urlResult.html', {'prediction1': prediction1, 'summary': summary})
     
+
+def contact(request):
+    return render(request, 'contact.html')
