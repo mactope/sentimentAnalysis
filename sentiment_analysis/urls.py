@@ -36,5 +36,8 @@ urlpatterns = [
     path('vaderResult/', views.vaderResult, name='vaderResult'),
     path('urlResult/', views.urlResult, name='urlResult'),
     path(('contact/'), views.contact, name='contact'),
+    path(('feature/'), views.feature, name='feature'),
+    path (('message/'), views.message, name='message'),
+    
 
 ]

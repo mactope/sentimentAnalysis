@@ -4,7 +4,13 @@ from numpy import character, var
 from . import articleSentiment
 from . import sentimentVader
 from . import tweepy_sentiment
+import mysql.connector as sql
+from django.contrib import messages
 
+fn = ''
+ln=''
+reg=''
+sub=''
 
 
 
@@ -48,4 +54,29 @@ def urlResult(request):
     
 
 def contact(request):
+    global fn, ln, reg, sub
+    if request.method == 'POST':
+        m = sql.connect(host='localhost', user='root', password='root', database='users')
+        cursor= m.cursor()
+        d = request.POST
+        for key, value in d.items():
+            if key == 'firstname':
+                fn = value
+            if key == 'lastname':
+                ln = value
+            if key == 'region':
+                reg = value
+            if key == 'subject':
+                sub = value
+        c = "INSERT INTO users(firstname, lastname, region, subject) VALUES('"+fn+"', '"+ln+"', '"+reg+"', '"+sub+"')"
+        cursor.execute(c)
+        m.commit()
+        messages.success(request, 'Feedback/message submitted successfully')
+        cursor.close()
     return render(request, 'contact.html')
+def feature(request):
+    return render(request, 'feature.html')
+
+def message(request):
+    return render(request, 'message.html')
+    

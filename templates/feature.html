@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'feature.css' %}">
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Sentiment Analysis</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'home' %}">Home </a>
+            <a class="nav-item nav-link" href="{% url 'feature' %}">Features <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
+            <a class="nav-item nav-link" href="#">Login</a>
+            <a class="nav-item nav-link" href="#">Signup</a>  
+          </div>
+        </div>
+      </nav>
+
+      <!--Page start-->
+      <h2 style="text-align:center">Our Features!!</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'web.jpg'%}" alt="Jane" style="width:100%; height: 300px;">
+      <div class="container">
+        <h2>Sentiment analysis from web.</h2>        
+        <p>Sentiment analysis from web is the one of the features of our website where you could 
+        analyze the sentiment of the news from the web. You can analyze the sentiment 
+        of the news, articles, etc, from the web just by inserting the link of the news or article.
+
+        </p>
+        
+        <p><a href="{% url 'sentimentUrl' %}"><button class="button">Try</button></a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'live1.jpg' %}" alt="Live" style="width:100%; height: 300px;">
+      <div class="container">
+        <h2>Live Sentiment Analysis</h2>
+        <p>Live Sentiment Analysis is another  features of our website where you could
+             analyze the sentiment of your text, words, paragrahps, sentences, etc, on the spot.
+             You can also analyze the sentiment of your desired sentences by copy pasting the text in the text box.
+            Positive, negative and neutral result would be shown based on your input.
+        
+            <p><a href="{% url 'sLive' %}"><button class="button">Try</button></a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'twitter.jpg' %}" alt="Twitter" style="width:100%; height: 300px;">
+      <div class="container">
+        <h2>Twitter Sentiment Analysis</h2>
+        <p>Twitter Sentiment Analysis is also one of the features of our website where you could
+             analyze the sentiment from twitter. You can analyze the sentiment of your tweets, aswell as others tweets if they are public.
+
+             
+            Positive, negative and neutral result would be shown based on your input.
+        
+        <p><a href="{% url 'sTwitter' %}"><button class="button">Try</button></a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+</body>
+</html>
