@@ -22,11 +22,11 @@ class articleSentiment():
         
     def predict(self):
         if self.sentiment == 0:
-            prediction1 = "This is neutral"
+            prediction1 = "Neutral"
         elif self.sentiment >0:
-            prediction1 = "This is positive"
+            prediction1 = "Positive"
         else:
-            prediction1 = "This is negative"
+            prediction1 = "Negative"
         return prediction1
     
 #creating object of class

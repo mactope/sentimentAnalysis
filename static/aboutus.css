@@ -1,0 +1,38 @@
+
+/* 
+adding background image to the page using css and changing its height and width
+ */
+
+ body{
+     background-image: linear-gradient(to bottom, rgba(199, 191, 191, 0.6) 0%,rgba(182, 174, 174, 0.6) 100%),
+      url('s1.jpg');
+ }
+
+ h1{
+     font-size: 60px;
+     font-family: 'Roboto', sans-serif;
+     color: black;
+     font-style: bold;
+     padding-top: 20px;
+     text-align: center;
+     margin-top: 30px;
+ }
+ h2{
+        font-size: 40px;
+        font-family: 'Roboto', sans-serif;
+        color: black;
+        font-style: bold;
+        padding-top: 20px;
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 30px;
+ }
+ p{
+        font-size: 25px;
+        font-family: 'Roboto', sans-serif;
+        display: column;
+        padding-top: 20px;
+        text-align: right;
+        margin-top: 30px;
+        background-color: light rgb(150, 144, 144);
+ }

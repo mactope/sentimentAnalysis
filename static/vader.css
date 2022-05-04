@@ -1,0 +1,57 @@
+h1{
+    text-align: center;
+}
+
+#lSentiment{
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 18px;
+  color: rgb(2, 1, 1);
+  margin-top: 20px;
+  text-align: top;
+  
+
+}
+
+#submit{
+    background-color: #2a5ae0;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;    
+    /** making the submit button at the centre of line.**/
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+}
+#submit:hover{
+    background-color: #2a5ae0;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+#usentiment{
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    color: black;
+    margin-top: 20px;
+    margin-left:20px;
+}
+#prediction{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-top: 20px;
+    margin-left:20px;
+}

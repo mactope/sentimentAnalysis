@@ -1,0 +1,44 @@
+body{
+    background-color: #e8ebec;
+
+}
+ h1{
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-style: bold;
+    padding-top: 10px;
+    text-align: center;
+
+
+ }
+
+ #summary{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-style: bold;
+    padding-top: 10px;
+    padding-left: auto;
+    padding-right: auto;
+    text-align: center;
+ }
+
+ #result{    
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color:black;
+    font-style: bold;
+    padding-top: 10px;
+    text-align: center;
+    margin-top: 50px;
+
+ }
+ #prediction{
+     font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        color: black;
+        font-style: bold;   
+        padding-top: 10px;
+        text-align: center;
+ }

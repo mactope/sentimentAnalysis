@@ -15,11 +15,11 @@ class sentimentVader():
         
     def predict(self):
         if self.sentiment_dict['compound'] == 0:
-            prediction = "This is neutral"
+            prediction = "This is neutral text."
         elif self.sentiment_dict['compound'] >0:
-            prediction = "This is positive"
+            prediction = "This is positive text."
         else:
-            prediction = "This is negative"
+            prediction = "This is negative text."
         return prediction
 
 
