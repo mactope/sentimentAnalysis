@@ -4,7 +4,7 @@ adding background image to the page using css and changing its height and width
  */
 
  body{
-     background-image: linear-gradient(to bottom, rgba(199, 191, 191, 0.6) 0%,rgba(182, 174, 174, 0.6) 100%),
+     background-image: linear-gradient(to bottom, rgba(68, 64, 64, 0.6) 0%,rgba(48, 45, 45, 0.6) 100%),
       url('s1.jpg');
  }
 

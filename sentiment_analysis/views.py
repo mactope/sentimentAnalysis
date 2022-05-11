@@ -6,6 +6,9 @@ from . import sentimentVader
 from . import tweepy_sentiment
 import mysql.connector as sql
 from django.contrib import messages
+from .forms import Sentiment_Imported_Tweet_analyse_form
+from . import twitterSentimentAnalysis
+from .tweepy_sentiment import Import_tweet_sentiment
 
 fn = ''
 ln=''
@@ -40,10 +43,43 @@ def sLive(request):
     
 
 def sTwitter(request):
-    return render(request, 'sTwitter.html')
 
-def article_sentiment(request):
-    return render(request, 'article_sentiment.html')
+    if request.method == 'POST':
+        form = Sentiment_Imported_Tweet_analyse_form(request.POST)
+        #import the tweet
+
+        tweet_text = Import_tweet_sentiment()
+        analyse = twitterSentimentAnalysis.twitterSentimentAnalysis()
+
+        if form.is_valid():
+            handle = form.cleaned_data['sentiment_imported_tweet']
+
+            if handle[0]=='#':
+                list_of_tweets = tweet_text.get_hashtag(handle)
+                list_of_tweets_and_sentiments = []
+                for i in list_of_tweets:
+                    list_of_tweets_and_sentiments.append((i,analyse.predict_sentiment(i)))
+                args = {'list_of_tweets_and_sentiments':list_of_tweets_and_sentiments, 'handle':handle}
+                return render(request, 'sentiment_import_result_hashtag.html', args)
+
+            list_of_tweets = tweet_text.get_tweets(handle)
+            list_of_tweets_and_sentiments = []
+            if handle[0]!='@':
+                handle = str('@'+handle)
+            for i in list_of_tweets:
+                list_of_tweets_and_sentiments.append((i,analyse.predict_sentiment(i)))
+            args = {'list_of_tweets_and_sentiments':list_of_tweets_and_sentiments, 'handle':handle}
+            return render(request, 'sentiment_import_result.html', args)
+
+    else:
+        form = Sentiment_Imported_Tweet_analyse_form()
+        return render(request, 'sTwitter.html')
+    
+
+def sentiment_import(request):
+    return render(request, 'sentiment_import.html')
+
+
 
 def sentimentUrl(request):
     return render(request, 'sentimentUrl.html')
@@ -67,9 +103,14 @@ def urlResult(request):
         return render(request, 'urlResult.html', {'prediction1': prediction1, 'summary': summary})
     except:
        #display error message as a visible message
-        messages.error(request, 'Invalid URL')        
+        a= messages.error(request, 'Invalid URL')        
         
-        return render(request, 'sentimentUrl.html')
+        return render(request, 'sentimentUrl.html' , {'a': a})
+
+
+def sentiment_import_result(request):
+    return render(request, 'sentiment_import_result.html')
+    
         
 
         
@@ -100,7 +141,7 @@ def contact(request):
                 reg = value
             if key == 'subject':
                 sub = value
-        c = "INSERT INTO users(firstname, lastname, region, subject, email) VALUES('"+fn+"', '"+ln+"', '"+em+"', '"+reg+"', '"+sub+"')"
+        c = "INSERT INTO users(firstname, lastname, region, subject, email) VALUES('"+fn+"', '"+ln+"', '"+reg+"', '"+sub+"', '"+em+"')"
         cursor.execute(c)
         m.commit()
         messages.success(request, 'Feedback/message submitted successfully')
@@ -111,4 +152,7 @@ def feature(request):
 
 def message(request):
     return render(request, 'message.html')
+
+def sentiment_import_result_hashtag(request):
+    return render(request, 'sentiment_import_result_hashtag.html')
     

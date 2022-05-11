@@ -9,14 +9,14 @@
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(214, 207, 207);
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
   }
   
   input[type=submit] {
-    background-color: #04AA6D;
+    background-color: #1d91be;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -24,13 +24,13 @@
   }
   
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #187dcf;
   }
   
   /* Style the container/contact section */
   .container {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #f2f0f0;
     padding: 10px;
   }
   
@@ -58,5 +58,5 @@
   }
 
   body{
-    background-color: #e8ebec;
+    background-color: #cccece;
 }

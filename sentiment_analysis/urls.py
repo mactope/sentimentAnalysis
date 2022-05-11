@@ -28,16 +28,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('sLive/', views.sLive, name='sLive'),
-    path('sTwitter/', views.sTwitter, name='sTwitter'),
-    path('article_sentiment/', views.article_sentiment, name='article_sentiment'),
-    path('sentimentUrl/', views.sentimentUrl, name='sentimentUrl'),
-    path('nav/', views.nav, name='nav'),
-    #path('vaderResult/', views.vaderResult, name='vaderResult'),
+    path('sLive/', views.sLive, name='sLive'), 
+    path('sTwitter/', views.sTwitter, name='sTwitter'),    
+    path('sentimentUrl/', views.sentimentUrl, name='sentimentUrl'),    
     path('urlResult/', views.urlResult, name='urlResult'),
     path(('contact/'), views.contact, name='contact'),
-    path(('feature/'), views.feature, name='feature'),
-    path (('message/'), views.message, name='message'),
+    path(('feature/'), views.feature, name='feature'),  
+    path(('sentiment_import/'), views.sentiment_import, name='sentiment_import'),
+    path(('sentiment_import_result/'), views.sentiment_import_result, name='sentiment_import_result'),
+    path(('sentiment_import_result_hashtag/'), views.sentiment_import_result_hashtag, name='sentiment_import_result_hashtag'),
+    
+   
     
 
 ]

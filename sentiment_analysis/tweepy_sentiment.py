@@ -10,10 +10,10 @@ import pandas as pd
 
 class Import_tweet_sentiment:
 
-	consumer_key="user consumer_key"
-	consumer_secret="user consumer_secret"
-	access_token="user access_token"
-	access_token_secret="user access_token_secret"
+	consumer_key="mtW31ltDiTgk7DwTBPwADUXlL"
+	consumer_secret="8FJUMa7R0ZEsITbbzh9TySaefFPKTBrcIZ5KzcmTdyOVsncfWB"
+	access_token="1515662160067661824-i5YeFhYwmVCcAUnhp25jA84UnJNUC6"
+	access_token_secret="2cLjuPTeplxMyBfTyiJgOYzSrjFNkgUWlPGJETTtJvVTN"
 
 	def tweet_to_data_frame(self, tweets):
 		df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
@@ -34,10 +34,13 @@ class Import_tweet_sentiment:
 		return all_tweets
 
 	def get_hashtag(self, hashtag):
+		#creating authentication object
 		auth = OAuthHandler(self.consumer_key, self.consumer_secret)
+		#setting access token
 		auth.set_access_token(self.access_token, self.access_token_secret)
+		#creating api object
 		auth_api = API(auth)
-
+		
 		account = hashtag
 		all_tweets = []
 
