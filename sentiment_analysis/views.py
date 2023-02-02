@@ -8,7 +8,9 @@ import mysql.connector as sql
 from django.contrib import messages
 from .forms import Sentiment_Imported_Tweet_analyse_form
 from . import twitterSentimentAnalysis
+from .twitterSentimentAnalysis import SentimentAnalysis
 from .tweepy_sentiment import Import_tweet_sentiment
+from .sentiment_analysis_code import sentiment_analysis_code
 
 fn = ''
 ln=''
@@ -40,7 +42,8 @@ def sLive(request):
 
 
     
-    
+def sentiment_import_result_hashtag(request):
+    return render(request, 'sentiment_import_result_hashtag.html')    
 
 def sTwitter(request):
 
@@ -49,7 +52,8 @@ def sTwitter(request):
         #import the tweet
 
         tweet_text = Import_tweet_sentiment()
-        analyse = twitterSentimentAnalysis.twitterSentimentAnalysis()
+        analyse = SentimentAnalysis()
+        #analyse = sentiment_analysis_code()
 
         if form.is_valid():
             handle = form.cleaned_data['sentiment_imported_tweet']
@@ -59,8 +63,13 @@ def sTwitter(request):
                 list_of_tweets_and_sentiments = []
                 for i in list_of_tweets:
                     list_of_tweets_and_sentiments.append((i,analyse.predict_sentiment(i)))
+                   # list_of_tweets_and_sentiments.append((i,analyse.get_tweet_sentiment(i)))
+                #return render(request, 'senti', {'list_of_tweets_and_sentiments': list_of_tweets_and_sentiments})
+
+
+                
                 args = {'list_of_tweets_and_sentiments':list_of_tweets_and_sentiments, 'handle':handle}
-                return render(request, 'sentiment_import_result_hashtag.html', args)
+                return render(request, 'twitter_result_hastag.html', args)
 
             list_of_tweets = tweet_text.get_tweets(handle)
             list_of_tweets_and_sentiments = []
@@ -68,16 +77,16 @@ def sTwitter(request):
                 handle = str('@'+handle)
             for i in list_of_tweets:
                 list_of_tweets_and_sentiments.append((i,analyse.predict_sentiment(i)))
+                #list_of_tweets_and_sentiments.append((i,analyse.get_tweet_sentiment(i)))
             args = {'list_of_tweets_and_sentiments':list_of_tweets_and_sentiments, 'handle':handle}
-            return render(request, 'sentiment_import_result.html', args)
+            return render(request, 'twitter_result.html', args)
 
     else:
         form = Sentiment_Imported_Tweet_analyse_form()
         return render(request, 'sTwitter.html')
     
 
-def sentiment_import(request):
-    return render(request, 'sentiment_import.html')
+
 
 
 
@@ -108,8 +117,8 @@ def urlResult(request):
         return render(request, 'sentimentUrl.html' , {'a': a})
 
 
-def sentiment_import_result(request):
-    return render(request, 'sentiment_import_result.html')
+def twitter_result(request):
+    return render(request, 'twitter_result.html')
     
         
 
@@ -153,6 +162,6 @@ def feature(request):
 def message(request):
     return render(request, 'message.html')
 
-def sentiment_import_result_hashtag(request):
-    return render(request, 'sentiment_import_result_hashtag.html')
+def twitter_result_hashtag(request):
+    return render(request, 'twitter_result_hashtag.html')
     
